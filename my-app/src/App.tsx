@@ -1,10 +1,11 @@
-
-import FormularioCadastro from './components/FormularioCadastro';
+import FormularioCadastro from "./components/FormularioCadastro";
+import ContactList from "./components/ContactList";
 function App() {
   return (
-   <>
-   <FormularioCadastro/>
-   </>
+    <>
+      <FormularioCadastro />
+      <ContactList />
+    </>
   );
 }
 
