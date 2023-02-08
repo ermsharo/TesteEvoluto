@@ -1,4 +1,4 @@
-import FormularioCadastro from "./components/FormularioCadastro";
+import CreateUserForm from "./components/CreateUserForm";
 import ContactList from "./components/ContactList";
 import styled from "styled-components";
 import { GeneralStyles } from "./styles/generalStyles";
@@ -13,7 +13,7 @@ function App() {
   return (
     <GeneralStyles>
       <Board>
-        <FormularioCadastro />
+        <CreateUserForm />
         <ContactList />
       </Board>
     </GeneralStyles>

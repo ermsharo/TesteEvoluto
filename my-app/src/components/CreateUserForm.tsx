@@ -1,7 +1,7 @@
-import styled from "styled-components";
+
 import { Input, Label, Box, Button } from "./../styles/generalStyles";
 
-export default function FormularioCadastro() {
+export default function CreateUserForm() {
   return (
     <Box>
       <h2>Cadastrar usuario</h2>
