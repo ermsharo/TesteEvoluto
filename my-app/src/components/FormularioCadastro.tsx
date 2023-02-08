@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Input, Label, Box } from "./../styles/generalStyles";
+import { Input, Label, Box, Button } from "./../styles/generalStyles";
 
 export default function FormularioCadastro() {
   return (
@@ -10,13 +10,13 @@ export default function FormularioCadastro() {
       <Label>Email</Label>
       <Input type="text" placeholder="Full name" required />
 
-      <button
+      <Button
         onClick={() => {
           console.log("-> testando");
         }}
       >
         asdasd
-      </button>
+      </Button>
     </Box>
   );
 }
