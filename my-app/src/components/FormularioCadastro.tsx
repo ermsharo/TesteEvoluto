@@ -1,21 +1,15 @@
 import styled from "styled-components";
-
-const Box = styled.div`
-  padding: 16px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`;
+import { Input, Label, Box } from "./../styles/generalStyles";
 
 export default function FormularioCadastro() {
   return (
     <Box>
       <h2>Cadastrar usuario</h2>
+      <Label>Nome</Label>
+      <Input type="text" placeholder="Full name" required />
+      <Label>Email</Label>
+      <Input type="text" placeholder="Full name" required />
 
-      <input type="text" value="asd"></input>
-      <input type="text" value="asd"></input>
       <button
         onClick={() => {
           console.log("-> testando");
