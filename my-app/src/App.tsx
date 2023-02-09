@@ -4,9 +4,13 @@ import styled from "styled-components";
 import { GeneralStyles } from "./styles/generalStyles";
 
 const Board = styled.div`
-  width: 60vw;
+  width: 70vw;
   margin: auto;
-  padding: 32px;
+  padding: 2rem;
+  // trunk-ignore(git-diff-check/error)
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2rem;
 `;
 
 function App() {
@@ -14,6 +18,7 @@ function App() {
     <GeneralStyles>
       <Board>
         <CreateUserForm />
+        <ContactList />
         <ContactList />
       </Board>
     </GeneralStyles>
