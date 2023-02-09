@@ -12,7 +12,6 @@ export const Box = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-
 `;
 
 export const GeneralStyles = styled.div`

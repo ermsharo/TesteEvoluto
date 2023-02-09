@@ -8,7 +8,7 @@ const Board = styled.div`
   margin: auto;
   padding: 2rem;
   // trunk-ignore(git-diff-check/error)
-  display: grid; 
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 2rem;
 `;
@@ -18,8 +18,8 @@ function App() {
     <GeneralStyles>
       <Board>
         <CreateUserForm />
-        <ContactList />
-        <ContactList />
+        <ContactList title="usuarios criados" flag="users" />
+        <ContactList title="usuarios deletados" flag="deleted_users" />
       </Board>
     </GeneralStyles>
   );

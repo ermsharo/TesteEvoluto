@@ -1,4 +1,3 @@
-
 import { Input, Label, Box, Button } from "./../styles/generalStyles";
 
 export default function CreateUserForm() {

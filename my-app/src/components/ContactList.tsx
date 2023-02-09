@@ -9,12 +9,12 @@ const Box = styled.div`
   gap: 16px;
 `;
 
-interface ContactListProps{
-    flag:string,
-    title: string,
+interface ContactListProps {
+  flag?: string;
+  title?: string;
 }
 
-export default function ContactList({flag, title}:ContactListProps) {
+export default function ContactList({ flag, title }: ContactListProps) {
   return (
     <Box>
       <h2>Usuarios excluidos</h2>
