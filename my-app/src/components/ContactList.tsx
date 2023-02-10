@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IcecreamView } from "./Test/icecream/IcecreamView";
+import { useAppSelector, useAppDispatch } from "../redux/hooks";
 
 const Box = styled.div`
   padding: 16px;
@@ -16,10 +16,11 @@ interface ContactListProps {
 }
 
 export default function ContactList({ flag, title }: ContactListProps) {
+  const userList = useAppSelector((state) => state.user.users);
   return (
     <Box>
       <h2>Usuarios excluidos</h2>
-      <IcecreamView />
+      <div>{JSON.stringify(userList)}</div>
     </Box>
   );
 }

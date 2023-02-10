@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
 type User = {
   id: number;
-  name: string;
+  username: string;
   email: string;
   status: boolean;
 };
@@ -15,6 +15,9 @@ const initialState: InitialState = {
   users: [],
 };
 
+
+
+
 const usersSlice = createSlice({
   name: "users",
   initialState,
@@ -25,4 +28,5 @@ const usersSlice = createSlice({
   },
 });
 
-export default usersSlice.reducer;
+export default usersSlice.reducer
+export const { updateUsers } = usersSlice.actions
