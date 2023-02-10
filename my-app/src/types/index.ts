@@ -4,3 +4,8 @@ export type User = {
   email: string;
   status: boolean;
 };
+
+
+export type UserInitialState = {
+  users: User[];
+};

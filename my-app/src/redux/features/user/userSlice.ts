@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-
+import {UserInitialState} from "./../../../types/index";
 type User = {
   id: string;
   username: string;
@@ -8,10 +8,8 @@ type User = {
   status: boolean;
 };
 
-type InitialState = {
-  users: User[];
-};
-const initialState: InitialState = {
+
+const initialState: UserInitialState = {
   users: [],
 };
 
