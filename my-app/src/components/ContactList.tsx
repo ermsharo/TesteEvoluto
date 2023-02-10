@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { IcecreamView } from "./Test/icecream/IcecreamView";
 
 const Box = styled.div`
   padding: 16px;
@@ -18,6 +19,7 @@ export default function ContactList({ flag, title }: ContactListProps) {
   return (
     <Box>
       <h2>Usuarios excluidos</h2>
+      <IcecreamView />
     </Box>
   );
 }
