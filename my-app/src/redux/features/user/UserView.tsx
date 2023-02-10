@@ -1,13 +1,13 @@
-import { useEffect } from 'react'
-import { useAppSelector, useAppDispatch } from '../../hooks'
-import { fetchUsers } from './userSlice'
+import { useEffect } from "react";
+import { useAppSelector, useAppDispatch } from "../../hooks";
+import { fetchUsers } from "./userSlice";
 
 export const UserView = () => {
-  const user = useAppSelector(state => state.user)
-  const dispatch = useAppDispatch()
+  const user = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(fetchUsers())
-  }, [])
+    dispatch(fetchUsers());
+  }, []);
   return (
     <div>
       <h2>List of Users</h2>
@@ -15,11 +15,11 @@ export const UserView = () => {
       {!user.loading && user.error ? <div>Error: {user.error}</div> : null}
       {!user.loading && user.users.length ? (
         <ul>
-          {user.users.map(user => (
+          {user.users.map((user) => (
             <li key={user.id}>{user.name}</li>
           ))}
         </ul>
       ) : null}
     </div>
-  )
-}
+  );
+};
