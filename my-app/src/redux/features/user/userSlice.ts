@@ -2,7 +2,7 @@ import axios from "axios";
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
 type User = {
-  id: number;
+  id: string;
   username: string;
   email: string;
   status: boolean;
@@ -15,18 +15,15 @@ const initialState: InitialState = {
   users: [],
 };
 
-
-
-
 const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-    updateUsers: (state, action: PayloadAction<User>) => {
+    addNewUser: (state, action: PayloadAction<User>) => {
       state.users.push(action.payload);
     },
   },
 });
 
-export default usersSlice.reducer
-export const { updateUsers } = usersSlice.actions
+export default usersSlice.reducer;
+export const { addNewUser } = usersSlice.actions;

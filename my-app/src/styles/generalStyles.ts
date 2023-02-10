@@ -1,9 +1,25 @@
 import styled from "styled-components";
+//#0c639d #0b5586 #094770 #07395a #052a43 #041c2d #020e16
 
-const bpExtraLargeDevices = "1200px";
-const bpLargeDevices = "992px";
-const bgMediumDevices = "768px";
-const bgSmallDevices = "600px";
+const BreakPoints = {
+  bpExtraLargeDevices: "1200px",
+  bpLargeDevices: "992px",
+  bgMediumDevices: "768px",
+  bgSmallDevices: "600px",
+};
+
+const Colors = {
+  primaryfontColor: "#daeffc",
+  secundaryfontColor: "#b5def9",
+  regularColor: "#0e71b3",
+  firstBackground: "",
+  secondBackround: "",
+};
+
+const Fonts = {
+  primaryFont: "",
+  secondaryFont: "",
+};
 
 export const Box = styled.div`
   padding: 1rem;
@@ -12,6 +28,10 @@ export const Box = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #000000;
 `;
 
 export const GeneralStyles = styled.div`
@@ -25,7 +45,7 @@ export const GeneralStyles = styled.div`
 const Board = styled.div`
   width: 60vw;
   margin: auto;
-  padding: 32px;
+  padding: 2rem;
 `;
 
 export const Input = styled.input`

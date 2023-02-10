@@ -1,7 +1,8 @@
 import { Input, Label, Box, Button } from "./../styles/generalStyles";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { useState } from "react";
-import { updateUsers } from "./../redux/features/user/userSlice";
+import { addNewUser } from "./../redux/features/user/userSlice";
+import { User } from "./../types/index";
 
 export default function CreateUserForm() {
   const [formInputs, setFormInputs] = useState({
@@ -21,7 +22,26 @@ export default function CreateUserForm() {
   }
 
   const getNewId = () => {
-    return 0;
+    let s4 = () => {
+      return Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1);
+    };
+
+    return (
+      s4() +
+      s4() +
+      "-" +
+      s4() +
+      "-" +
+      s4() +
+      "-" +
+      s4() +
+      "-" +
+      s4() +
+      s4() +
+      s4()
+    );
   };
   const generateStatus = () => {
     return true;
@@ -32,6 +52,14 @@ export default function CreateUserForm() {
     id: getNewId(),
     status: generateStatus(),
   };
+
+  const isUsernameValid = (state: User[], username: string) => {};
+
+  const isIdValid = (state: User[], id: string) => {};
+
+  const isMailValid = (state: User[], mail: string) => {};
+
+  const verifyErrors = (state: User[], mail: string) => {};
 
   return (
     <Box>
@@ -56,7 +84,9 @@ export default function CreateUserForm() {
         required
       />
 
-      <Button onClick={() => dispatch(updateUsers(userDefaultObj))}>asdasd</Button>
+      <Button onClick={() => dispatch(addNewUser(userDefaultObj))}>
+        asdasd
+      </Button>
     </Box>
   );
 }
