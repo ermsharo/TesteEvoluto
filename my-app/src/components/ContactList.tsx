@@ -11,15 +11,15 @@ const Box = styled.div`
 `;
 
 interface ContactListProps {
-  flag?: string;
-  title?: string;
+  status: boolean;
+  title: string;
 }
 
-export default function ContactList({ flag, title }: ContactListProps) {
+export default function ContactList({ status, title }: ContactListProps) {
   const userList = useAppSelector((state) => state.user.users);
   return (
     <Box>
-      <h2>Usuarios excluidos</h2>
+      <h2>{title}</h2>
       <div>{JSON.stringify(userList)}</div>
     </Box>
   );

@@ -17,8 +17,8 @@ function App() {
     <GeneralStyles>
       <Board>
         <CreateUserForm />
-        <ContactList title="usuarios criados" flag="users" />
-        <ContactList title="usuarios deletados" flag="deleted_users" />
+        <ContactList title="contatos ativos" status />
+        <ContactList title="contatos excluídos" status={false} />
       </Board>
     </GeneralStyles>
   );
