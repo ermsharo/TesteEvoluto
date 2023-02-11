@@ -1,7 +1,7 @@
 import CreateUserForm from "./components/CreateUserForm";
 import ContactList from "./components/ContactList";
 import styled from "styled-components";
-import { GeneralStyles } from "./styles/generalStyles";
+import GlobalStyle from "./styles/globalStyles";
 
 const Board = styled.div`
   width: 70vw;
@@ -14,13 +14,16 @@ const Board = styled.div`
 
 function App() {
   return (
-    <GeneralStyles>
-      <Board>
-        <CreateUserForm />
-        <ContactList title="contatos ativos" status />
-        <ContactList title="contatos excluídos" status={false} />
-      </Board>
-    </GeneralStyles>
+    <>
+      <GlobalStyle />
+
+        <Board>
+          <CreateUserForm />
+          <ContactList title="contatos ativos" status />
+          <ContactList title="contatos excluídos" status={false} />
+        </Board>
+
+    </>
   );
 }
 

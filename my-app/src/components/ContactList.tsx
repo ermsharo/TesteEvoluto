@@ -1,14 +1,6 @@
 import styled from "styled-components";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
-
-const Box = styled.div`
-  padding: 16px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`;
+import { Box } from "./../styles/generalStyles";
 
 interface ContactListProps {
   status: boolean;

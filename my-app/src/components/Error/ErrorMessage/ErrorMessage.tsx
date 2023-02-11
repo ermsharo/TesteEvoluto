@@ -1,4 +1,3 @@
-
 import styled from "styled-components";
 
 export const ErrorBox = styled.div`
@@ -13,11 +12,11 @@ export const ErrorBox = styled.div`
 `;
 
 interface ErrorMessageProps {
-    message: string
+  message: string;
 }
 
 function ErrorMessage({ message }: ErrorMessageProps) {
-    return <ErrorBox>ErrorMessage : message</ErrorBox>;
-};
+  return <ErrorBox>ErrorMessage : message</ErrorBox>;
+}
 
 export default ErrorMessage;

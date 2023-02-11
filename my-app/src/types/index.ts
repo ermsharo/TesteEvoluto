@@ -5,7 +5,6 @@ export type User = {
   status: boolean;
 };
 
-
 export type UserInitialState = {
   users: User[];
 };

@@ -1,13 +1,12 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import {UserInitialState} from "./../../../types/index";
+import { UserInitialState } from "./../../../types/index";
 type User = {
   id: string;
   username: string;
   email: string;
   status: boolean;
 };
-
 
 const initialState: UserInitialState = {
   users: [],
