@@ -14,13 +14,13 @@ const GlobalStyle = createGlobalStyle`
    }
    h1 {
     font-family: ${Fonts.primaryFont}   
-    font-weight: bold;
-    font-size:2rem;
+
+    font-size:2.5rem;
     padding:1.5rem;
   }
   h2 {
-    font-size:2rem;
-    font-weight: bold;
+    font-size:2.2rem;
+    letter-spacing: 0.15rem;
     font-family: ${Fonts.primaryFont};
     text-transform: capitalize;
     padding:1rem;

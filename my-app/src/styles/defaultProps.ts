@@ -16,6 +16,6 @@ export const Colors = {
 };
 
 export const Fonts = {
-  primaryFont: `Roboto Slab`,
+  primaryFont: 'Sen',
   secondaryFont: `Varela Round`,
 };
