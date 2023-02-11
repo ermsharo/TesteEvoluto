@@ -8,7 +8,9 @@ const GlobalStyle = createGlobalStyle`
    body{
       background-color: ${Colors.firstBackground};
       color:${Colors.primaryfontColor};  
-      font-family: ${Fonts.secondaryFont}      
+      font-family: ${Fonts.secondaryFont};
+      border:0;
+      margin:0;
    }
    h1 {
     font-family: ${Fonts.primaryFont}   
@@ -23,7 +25,6 @@ const GlobalStyle = createGlobalStyle`
     text-transform: capitalize;
     padding:1rem;
   }
-
 
 `;
 export default GlobalStyle;

@@ -18,9 +18,10 @@ export const Box = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  white-space: nowrap;
-  overflow: hidden;
+  white-space: wrap;
+
   text-overflow: ellipsis;
+  height: 70vh;
   background-color: ${Colors.secondBackround};
 `;
 
