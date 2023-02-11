@@ -6,17 +6,22 @@ const GlobalStyle = createGlobalStyle`
    
 
    body{
-      font-family: 'Arial';
       background-color: ${Colors.firstBackground};
       color:${Colors.primaryfontColor};  
       font-family: ${Fonts.secondaryFont}      
    }
    h1 {
     font-family: ${Fonts.primaryFont}   
+    font-weight: bold;
+    font-size:2rem;
+    padding:1.5rem;
   }
   h2 {
-
-    font-family: ${Fonts.primaryFont} 
+    font-size:2rem;
+    font-weight: bold;
+    font-family: ${Fonts.primaryFont};
+    text-transform: capitalize;
+    padding:1rem;
   }
 
 

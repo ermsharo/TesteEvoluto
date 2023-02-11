@@ -17,12 +17,11 @@ function App() {
     <>
       <GlobalStyle />
 
-        <Board>
-          <CreateUserForm />
-          <ContactList title="contatos ativos" status />
-          <ContactList title="contatos excluídos" status={false} />
-        </Board>
-
+      <Board>
+        <CreateUserForm />
+        <ContactList title="contatos ativos" status />
+        <ContactList title="contatos excluídos" status={false} />
+      </Board>
     </>
   );
 }

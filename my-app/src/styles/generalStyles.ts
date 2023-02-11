@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 const Colors = {
   primaryfontColor: "#daeffc",
   secundaryfontColor: "#b5def9",
@@ -10,7 +9,6 @@ const Colors = {
   secondBackround: "#041c2d",
   thirthBackground: "#052a43",
 };
-
 
 export const Box = styled.div`
   padding: 1rem;
@@ -25,9 +23,6 @@ export const Box = styled.div`
   text-overflow: ellipsis;
   background-color: ${Colors.secondBackround};
 `;
-
-
-
 
 export const Input = styled.input`
   font-family: "Roboto", sans-serif;

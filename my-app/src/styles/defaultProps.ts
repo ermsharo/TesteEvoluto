@@ -6,16 +6,16 @@ export const BreakPoints = {
 };
 
 export const Colors = {
-    primaryfontColor: "#daeffc",
-    secundaryfontColor: "#b5def9",
-    regularColor: "#0e71b3",
-    hooverColor: "#1188d8",
-    firstBackground: "#020e16",
-    secondBackround: "#041c2d",
-    thirthBackground: "#052a43",
-  };
-  
+  primaryfontColor: "#daeffc",
+  secundaryfontColor: "#b5def9",
+  regularColor: "#0e71b3",
+  hooverColor: "#1188d8",
+  firstBackground: "#020e16",
+  secondBackround: "#041c2d",
+  thirthBackground: "#052a43",
+};
+
 export const Fonts = {
-  primaryFont: `'Roboto Slab', serif`,
-  secondaryFont: `Varela Round', sans-serif`,
+  primaryFont: `Roboto Slab`,
+  secondaryFont: `Varela Round`,
 };
