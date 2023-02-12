@@ -13,10 +13,8 @@ interface ContactListProps {
 const TABLE = styled.table`
   border-collapse: collapse;
   border-spacing: 0;
-  width: 100%;
   text-align: left;
-  width: 90%;
-  margin: auto;
+  margin: 1rem;
 `;
 
 const TR = styled.tr`
