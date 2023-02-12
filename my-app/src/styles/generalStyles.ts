@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Fonts } from "./defaultProps";
 
 const Colors = {
   primaryfontColor: "#daeffc",
@@ -11,12 +12,11 @@ const Colors = {
 };
 
 export const Box = styled.div`
-  padding: 1rem;
+  padding: 1.5rem;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
+
   gap: 1rem;
   white-space: wrap;
 
@@ -26,13 +26,16 @@ export const Box = styled.div`
 `;
 
 export const Input = styled.input`
-  font-family: "Roboto", sans-serif;
+  font-family: ${Fonts.primaryFont}
   color: #333;
   font-size: 1.2rem;
   border-radius: 0.2rem;
   border: 0;
-  width: calc(100% - 4rem);
-  margin: auto;
+  box-sizing: border-box;
+
+  width: calc(100%);
+
+  margin-top: 0.5rem;
   padding: 1rem;
   margin-bottom: 16px;
   background-color: ${Colors.thirthBackground};
@@ -40,12 +43,16 @@ export const Input = styled.input`
   &::placeholder {
     color: ${Colors.firstBackground};
   }
+  &:focus{
+    outline: 0.2rem solid  ${Colors.firstBackground};
+    outline-style: dashed;
+  }
 `;
 
 export const Label = styled.label`
-  font-family: "Roboto", sans-serif;
+  font-family: ${Fonts.primaryFont};
   font-size: 1.2rem;
-  padding: 0.25rem 1rem;
+  line-height: 1.2rem;
 `;
 
 export const Button = styled.button`
@@ -60,7 +67,7 @@ export const Button = styled.button`
   padding: 0.5rem;
   background-color: darkblue;
   color: white;
-  width: calc(100% - 2rem);
+  width: calc(100%);
   height: 3rem;
   margin: auto;
   background-color: ${Colors.regularColor};

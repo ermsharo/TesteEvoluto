@@ -3,12 +3,23 @@ import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { useState } from "react";
 import { addNewUser } from "./../redux/features/user/userSlice";
 import { User } from "./../types/index";
+import styled from "styled-components";
+import ErrorAlert from "./Error/ErrorAlert";
 
+const FormBox = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
 export default function CreateUserForm() {
+  const userList = useAppSelector((state) => state.user.users);
   const [formInputs, setFormInputs] = useState({
     username: "",
     email: "",
   });
+
+  const [formErrors, setFormErrors] = useState([]);
 
   const dispatch = useAppDispatch();
 
@@ -18,7 +29,6 @@ export default function CreateUserForm() {
       ...formInputs,
       [e.target.name]: value,
     });
-    console.log("aqui esta", formInputs);
   }
 
   const getNewId = () => {
@@ -43,50 +53,96 @@ export default function CreateUserForm() {
       s4()
     );
   };
-  const generateStatus = () => {
-    return true;
-  };
 
   const userDefaultObj = {
     ...formInputs,
     id: getNewId(),
-    status: generateStatus(),
+    status: true,
   };
 
-  const isUsernameValid = (state: User[], username: string) => {};
+  const thisUsernameExist = (state: User[], username: string) => {
+    let usernameExist = state.findIndex(
+      (user: { username: string }) => user.username === username
+    );
+    if (usernameExist === -1) return false;
+    return true;
+  };
 
-  const isIdValid = (state: User[], id: string) => {};
+  const thisIdExist = (state: User[], id: string) => {
+    let idExist = state.findIndex((user: { id: string }) => user.id === id);
+    if (idExist === -1) return false;
+    return true;
+  };
 
-  const isMailValid = (state: User[], mail: string) => {};
 
-  const verifyErrors = (state: User[], mail: string) => {};
+
+  const thisEmailExist = (state: User[], email: string) => {
+    let emailExist = state.findIndex(
+      (user: { email: string }) => user.email === email
+    );
+    if (emailExist === -1) return false;
+    return true;
+  };
+
+  const isMailValid = (email: string) => {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  };
+
+  const verifyErrors = (state: User[], user: User) => {
+    const { email, username, id } = userDefaultObj;
+    if (thisUsernameExist(state, username)) {
+      alert("Nome de usuário já existe");
+    }
+    if (thisIdExist(state, id)) {
+      alert("ID já existente");
+    }
+    if (thisEmailExist(state, email)) {
+      alert("email já cadastrado");
+    }
+    if (!isMailValid(email)) {
+      alert("email invalido");
+    }
+  };
+
+  const subscribeUser = () => {
+    console.log("user list", userList);
+    console.log("user default object", userDefaultObj);
+    verifyErrors(userList, userDefaultObj);
+    dispatch(addNewUser(userDefaultObj));
+  };
 
   return (
     <Box>
       <h2>Cadastrar usuario</h2>
+      <FormBox>
+        <Label>
+          Nome
+          <Input
+            type="text"
+            placeholder="Nome do usuário"
+            name="username"
+            onChange={handleChange}
+            value={formInputs.username}
+            required
+          />
+        </Label>
 
-      <Label>Nome</Label>
-      <Input
-        type="text"
-        placeholder="username"
-        name="username"
-        onChange={handleChange}
-        value={formInputs.username}
-        required
-      />
-      <Label>Email</Label>
-      <Input
-        type="text"
-        onChange={handleChange}
-        placeholder="email"
-        name="email"
-        value={formInputs.email}
-        required
-      />
+        <Label>
+          Email
+          <Input
+            type="text"
+            onChange={handleChange}
+            placeholder="Email do usuário"
+            name="email"
+            value={formInputs.email}
+            required
+          />
+        </Label>
 
-      <Button onClick={() => dispatch(addNewUser(userDefaultObj))}>
-        asdasd
-      </Button>
+        <Button onClick={() => subscribeUser()}>Cadastrar</Button>
+        <ErrorAlert errors = {formErrors}/>
+      </FormBox>
     </Box>
   );
 }

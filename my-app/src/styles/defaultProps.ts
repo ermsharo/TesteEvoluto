@@ -13,9 +13,10 @@ export const Colors = {
   firstBackground: "#020e16",
   secondBackround: "#041c2d",
   thirthBackground: "#052a43",
+  errorColor: "#ee2236",
 };
 
 export const Fonts = {
-  primaryFont: 'Sen',
+  primaryFont: "Sen",
   secondaryFont: `Varela Round`,
 };

@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { useAppSelector, useAppDispatch } from "../redux/hooks";
+import { useAppSelector } from "../redux/hooks";
 import { Box } from "./../styles/generalStyles";
-import RegularCard from "../components/InfoCard/RegularCard";
 import InfoCard from "./InfoCard/InfoCard";
 import { Colors } from "../styles/defaultProps";
 
