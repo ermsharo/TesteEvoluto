@@ -19,7 +19,7 @@ export default function CreateUserForm() {
     email: "",
   });
 
-  const [formErrors, setFormErrors] = useState([]);
+  const [formErrors, setFormErrors] = useState<string[]>([]);
 
   const dispatch = useAppDispatch();
 
@@ -74,8 +74,6 @@ export default function CreateUserForm() {
     return true;
   };
 
-
-
   const thisEmailExist = (state: User[], email: string) => {
     let emailExist = state.findIndex(
       (user: { email: string }) => user.email === email
@@ -91,18 +89,22 @@ export default function CreateUserForm() {
 
   const verifyErrors = (state: User[], user: User) => {
     const { email, username, id } = userDefaultObj;
+    let formErrors = [];
+
     if (thisUsernameExist(state, username)) {
-      alert("Nome de usuário já existe");
+      formErrors.push("Nome de usuário já existe");
     }
     if (thisIdExist(state, id)) {
-      alert("ID já existente");
+      formErrors.push("ID já existente");
     }
     if (thisEmailExist(state, email)) {
-      alert("email já cadastrado");
+      formErrors.push("email já cadastrado");
     }
     if (!isMailValid(email)) {
-      alert("email invalido");
+      formErrors.push("email invalido");
     }
+
+    setFormErrors(formErrors);
   };
 
   const subscribeUser = () => {
@@ -141,7 +143,7 @@ export default function CreateUserForm() {
         </Label>
 
         <Button onClick={() => subscribeUser()}>Cadastrar</Button>
-        <ErrorAlert errors = {formErrors}/>
+        <ErrorAlert errors={formErrors} />
       </FormBox>
     </Box>
   );
