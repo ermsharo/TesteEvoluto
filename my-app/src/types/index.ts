@@ -8,3 +8,8 @@ export type User = {
 export type UserInitialState = {
   users: User[];
 };
+
+export type FormInputs = {
+  username: string;
+  email: string;
+};

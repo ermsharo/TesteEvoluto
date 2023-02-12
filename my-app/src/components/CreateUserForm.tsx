@@ -2,7 +2,7 @@ import { Input, Label, Box, Button } from "./../styles/generalStyles";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { useState } from "react";
 import { addNewUser } from "./../redux/features/user/userSlice";
-import { User } from "./../types/index";
+import { User, FormInputs } from "./../types/index";
 import styled from "styled-components";
 import ErrorAlert from "./Error/ErrorAlert";
 import {
@@ -20,7 +20,7 @@ const FormBox = styled.div`
 `;
 export default function CreateUserForm() {
   const userList = useAppSelector((state) => state.user.users);
-  const [formInputs, setFormInputs] = useState({
+  const [formInputs, setFormInputs] = useState<FormInputs>({
     username: "",
     email: "",
   });
@@ -60,14 +60,8 @@ export default function CreateUserForm() {
     );
   };
 
-  const userDefaultObj = {
-    ...formInputs,
-    id: generateNewID(),
-    status: true,
-  };
-
-  const verifyErrors = (state: User[], user: User) => {
-    const { email, username, id } = userDefaultObj;
+  const verifyErrors = (state: User[], formInputs: FormInputs) => {
+    const { email, username } = formInputs;
     let formErrors = [];
     if (username === "") {
       formErrors.push("Campo nome é obrigatorio");
@@ -85,11 +79,23 @@ export default function CreateUserForm() {
     }
 
     setFormErrors(formErrors);
-    if (formErrors.length === 0) dispatch(addNewUser(userDefaultObj));
+
+    if (formErrors.length === 0) {
+      let id = generateNewID();
+      while (thisIdExist(state, id)) {
+        id = generateNewID();
+      }
+      const userDefaultObj = {
+        ...formInputs,
+        id: id,
+        status: true,
+      };
+      dispatch(addNewUser(userDefaultObj));
+    }
   };
 
   const subscribeUser = () => {
-    verifyErrors(userList, userDefaultObj);
+    verifyErrors(userList, formInputs);
   };
 
   return (
