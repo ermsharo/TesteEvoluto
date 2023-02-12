@@ -5,6 +5,12 @@ import { addNewUser } from "./../redux/features/user/userSlice";
 import { User } from "./../types/index";
 import styled from "styled-components";
 import ErrorAlert from "./Error/ErrorAlert";
+import {
+  thisUsernameExist,
+  thisIdExist,
+  thisEmailExist,
+  isMailValid,
+} from "./../utils/formValidations";
 
 const FormBox = styled.div`
   width: 100%;
@@ -31,7 +37,7 @@ export default function CreateUserForm() {
     });
   }
 
-  const getNewId = () => {
+  const generateNewID = () => {
     let s4 = () => {
       return Math.floor((1 + Math.random()) * 0x10000)
         .toString(16)
@@ -56,65 +62,34 @@ export default function CreateUserForm() {
 
   const userDefaultObj = {
     ...formInputs,
-    id: getNewId(),
+    id: generateNewID(),
     status: true,
-  };
-
-  const thisUsernameExist = (state: User[], username: string) => {
-    let usernameExist = state.findIndex(
-      (user: { username: string }) => user.username === username
-    );
-    if (usernameExist === -1) return false;
-    return true;
-  };
-
-  const thisIdExist = (state: User[], id: string) => {
-    let idExist = state.findIndex((user: { id: string }) => user.id === id);
-    if (idExist === -1) return false;
-    return true;
-  };
-
-  const thisEmailExist = (state: User[], email: string) => {
-    let emailExist = state.findIndex(
-      (user: { email: string }) => user.email === email
-    );
-    if (emailExist === -1) return false;
-    return true;
-  };
-
-  const isMailValid = (email: string) => {
-    var re = /\S+@\S+\.\S+/;
-    return re.test(email);
   };
 
   const verifyErrors = (state: User[], user: User) => {
     const { email, username, id } = userDefaultObj;
     let formErrors = [];
-    if(username === ""){
+    if (username === "") {
       formErrors.push("Campo nome é obrigatorio");
     }
 
     if (thisUsernameExist(state, username)) {
       formErrors.push("Nome de usuário já existe");
     }
-    if (thisIdExist(state, id)) {
-      formErrors.push("ID já existente");
-    }
+
     if (thisEmailExist(state, email)) {
-      formErrors.push("email já cadastrado");
+      formErrors.push("Email já cadastrado");
     }
     if (!isMailValid(email)) {
-      formErrors.push("email invalido");
+      formErrors.push("Email invalido");
     }
 
     setFormErrors(formErrors);
+    if (formErrors.length === 0) dispatch(addNewUser(userDefaultObj));
   };
 
   const subscribeUser = () => {
-    console.log("user list", userList);
-    console.log("user default object", userDefaultObj);
     verifyErrors(userList, userDefaultObj);
-    dispatch(addNewUser(userDefaultObj));
   };
 
   return (
