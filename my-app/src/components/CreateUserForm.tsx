@@ -90,6 +90,9 @@ export default function CreateUserForm() {
   const verifyErrors = (state: User[], user: User) => {
     const { email, username, id } = userDefaultObj;
     let formErrors = [];
+    if(username === ""){
+      formErrors.push("Campo nome é obrigatorio");
+    }
 
     if (thisUsernameExist(state, username)) {
       formErrors.push("Nome de usuário já existe");

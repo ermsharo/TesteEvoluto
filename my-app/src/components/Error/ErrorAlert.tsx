@@ -19,10 +19,9 @@ export default function ErrorAlert({ errors }: ErrorAlertProps) {
   return (
     <ErrorBox>
       <ul>
-        {" "}
         {errors.map((error, index) => {
           return <li key={index}>{error}</li>;
-        })}{" "}
+        })}
       </ul>
     </ErrorBox>
   );
