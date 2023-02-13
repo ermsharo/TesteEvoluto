@@ -6,7 +6,7 @@ import { useState } from "react";
 import { EditInput } from "../../styles/generalStyles";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 // import { addNewUser } from "./../redux/features/user/userSlice";
-import { removeUser } from "./../../redux/features/user/userSlice";
+import { removeUser, editUser } from "./../../redux/features/user/userSlice";
 
 export const TH = styled.th`
   padding: 0.5rem;
@@ -44,6 +44,11 @@ export default function RegularCard({ username, email, id }: User) {
 
   const deleteUser = (id: string) => {
     dispatch(removeUser(id));
+  };
+
+  const saveEditUser = () => {
+    dispatch(editUser({ ...formInputs, id: id }));
+    setEditMode(false);
   };
 
   const [editMode, setEditMode] = useState(false);
@@ -91,7 +96,7 @@ export default function RegularCard({ username, email, id }: User) {
           ) : (
             <IconButton
               onClick={() => {
-                setEditMode(false);
+                saveEditUser();
               }}
             >
               <FaSave />

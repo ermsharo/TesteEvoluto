@@ -1,15 +1,23 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { UserInitialState } from "./../../../types/index";
-type User = {
-  id: string;
-  username: string;
-  email: string;
-  status: boolean;
-};
+import { UserInitialState, User, EditIputs } from "./../../../types/index";
 
 const initialState: UserInitialState = {
   users: [],
+};
+
+const changeUserinfo = (state: UserInitialState, editInputs: EditIputs) => {
+  const updatedStatus = state.users.map((user) => {
+    let userObj = user;
+    if (userObj.id === editInputs.id) {
+      userObj.username = editInputs.username;
+      userObj.email = editInputs.email;
+      return userObj;
+    }
+    return userObj;
+  });
+  console.log("Array with status changed", updatedStatus);
+  return updatedStatus;
 };
 
 const changeUserStatus = (
@@ -42,8 +50,12 @@ const usersSlice = createSlice({
     restoreUser: (state, action: PayloadAction<string>) => {
       state.users = changeUserStatus(state, action.payload, true);
     },
+    editUser: (state, action: PayloadAction<EditIputs>) => {
+      state.users = changeUserinfo(state, action.payload);
+    },
   },
 });
 
 export default usersSlice.reducer;
-export const { addNewUser, removeUser, restoreUser } = usersSlice.actions;
+export const { addNewUser, removeUser, restoreUser, editUser } =
+  usersSlice.actions;

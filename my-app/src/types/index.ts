@@ -13,3 +13,9 @@ export type FormInputs = {
   username: string;
   email: string;
 };
+
+export type EditIputs = {
+  id: string;
+  username: string;
+  email: string;
+};
