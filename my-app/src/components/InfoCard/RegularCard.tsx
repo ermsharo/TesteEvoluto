@@ -4,6 +4,9 @@ import { FaEdit, FaTrash, FaSave } from "react-icons/fa";
 import { Colors } from "../../styles/defaultProps";
 import { useState } from "react";
 import { EditInput } from "../../styles/generalStyles";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+// import { addNewUser } from "./../redux/features/user/userSlice";
+import { removeUser } from "./../../redux/features/user/userSlice";
 
 export const TH = styled.th`
   padding: 0.5rem;
@@ -24,6 +27,8 @@ export const IconButton = styled.div`
 `;
 
 export default function RegularCard({ username, email, id }: User) {
+  const dispatch = useAppDispatch();
+
   const [formInputs, setFormInputs] = useState({
     username: username,
     email: email,
@@ -36,6 +41,10 @@ export default function RegularCard({ username, email, id }: User) {
       [e.target.name]: value,
     });
   }
+
+  const deleteUser = (id: string) => {
+    dispatch(removeUser(id));
+  };
 
   const [editMode, setEditMode] = useState(false);
 
@@ -90,7 +99,11 @@ export default function RegularCard({ username, email, id }: User) {
           )}
 
           <IconButton>
-            <FaTrash />
+            <FaTrash
+              onClick={() => {
+                deleteUser(id);
+              }}
+            />
           </IconButton>
         </IconList>
       </TH>

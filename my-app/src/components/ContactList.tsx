@@ -69,7 +69,7 @@ export default function ContactList({ status, title }: ContactListProps) {
             <TH>Email</TH>
             <TH></TH>
           </tr>
-          {userList.map((user, id) => {
+          {filterByParameter().map((user, id) => {
             return (
               <TR key={id}>
                 <InfoCard
