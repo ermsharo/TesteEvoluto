@@ -70,7 +70,7 @@ export default function RegularCard({ username, email, id }: User) {
       </TH>
       <TH>
         {!editMode ? (
-          id
+         formInputs.email
         ) : (
           <EditInput
             type="text"

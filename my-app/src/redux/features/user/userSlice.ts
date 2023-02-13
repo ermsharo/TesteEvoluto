@@ -13,7 +13,6 @@ const orderByUsername = (userList: User[]) => {
 const addUser = (state: UserInitialState, user: User) => {
   let newUserArr = state.users;
   newUserArr.push(user);
-  console.log("->", user, ",", state);
   return orderByUsername(newUserArr);
 };
 
