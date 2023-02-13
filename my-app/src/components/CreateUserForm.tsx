@@ -1,4 +1,4 @@
-import { Input, Label, Box, Button } from "./../styles/generalStyles";
+import { Input, Label, Button } from "./../styles/generalStyles";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { useState } from "react";
 import { addNewUser } from "./../redux/features/user/userSlice";
@@ -69,6 +69,7 @@ export default function CreateUserForm() {
         status: true,
       };
       dispatch(addNewUser(userDefaultObj));
+      setFormInputs({ username: "", email: "" });
     }
   };
 

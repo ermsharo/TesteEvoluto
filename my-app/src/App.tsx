@@ -47,7 +47,6 @@ function App() {
     <>
       <GlobalStyle />
       <Header />
-
       <Board>
         <TabsBox>
           <TabsArea>
