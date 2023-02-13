@@ -65,7 +65,7 @@ export default function ContactList({ status, title }: ContactListProps) {
       ) : (
         <TABLE>
           <tr>
-            <TH>User</TH>
+            <TH>Nome</TH>
             <TH>Email</TH>
             <TH></TH>
           </tr>

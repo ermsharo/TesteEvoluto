@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { User } from "../../types";
-import { FaEdit, FaTrash, FaSave } from "react-icons/fa";
+import { FaEdit, FaTrashRestore, FaSave } from "react-icons/fa";
 import { Colors } from "../../styles/defaultProps";
 import { useState } from "react";
 import { EditInput } from "../../styles/generalStyles";
@@ -40,7 +40,7 @@ export default function DeletedCards({ username, email, id }: User) {
       <TH>
         <IconList>
           <IconButton>
-            <FaTrash
+            <FaTrashRestore
               onClick={() => {
                 restore(id);
               }}
