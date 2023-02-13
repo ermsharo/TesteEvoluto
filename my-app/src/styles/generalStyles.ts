@@ -120,7 +120,7 @@ export const Board = styled.div`
 export const TabsBox = styled.div`
   display: flex;
   flex-direction: column;
-  height:100%;
+  height: 100%;
 `;
 
 export const Tabs = styled.div`
@@ -146,14 +146,12 @@ export const TabsInfoArea = styled.div`
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   border-radius: 0rem 1rem 1rem 1rem;
   gap: 1rem;
-  white-space: wrap;
-
-  text-overflow: ellipsis;
 
   height: 100%;
   background-color: ${Colors.secondBackround};
 
   @media (max-width: ${BreakPoints.bgMediumDevices}) {
     border-radius: 0rem 0rem 1rem 1rem;
+    padding: 0.75rem;
   }
 `;

@@ -5,6 +5,17 @@ const initialState: UserInitialState = {
   users: [],
 };
 
+const orderByUsername = (userList: User[]) => {
+  let orderUsers = userList.sort((a, b) => (a.username > b.username ? 1 : -1));
+  return orderUsers;
+};
+
+const addUser = (state: UserInitialState, user: User) => {
+  let newUserArr = state.users;
+  newUserArr.push(user);
+  return orderByUsername(newUserArr);
+};
+
 const changeUserinfo = (state: UserInitialState, editInputs: EditIputs) => {
   const updatedStatus = state.users.map((user) => {
     let userObj = user;
@@ -15,7 +26,7 @@ const changeUserinfo = (state: UserInitialState, editInputs: EditIputs) => {
     }
     return userObj;
   });
-  return updatedStatus;
+  return orderByUsername(updatedStatus);
 };
 
 const changeUserStatus = (
@@ -31,7 +42,7 @@ const changeUserStatus = (
     }
     return userObj;
   });
-  return updatedStatus;
+  return orderByUsername(updatedStatus);
 };
 
 const usersSlice = createSlice({
@@ -39,7 +50,7 @@ const usersSlice = createSlice({
   initialState,
   reducers: {
     addNewUser: (state, action: PayloadAction<User>) => {
-      state.users.push(action.payload);
+      state.users = addUser(state, action.payload);
     },
     removeUser: (state, action: PayloadAction<string>) => {
       state.users = changeUserStatus(state, action.payload, false);

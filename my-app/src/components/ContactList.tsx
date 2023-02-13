@@ -17,12 +17,21 @@ const DisplayInfoBox = styled.div`
   font-size: 1rem;
 `;
 
+const TableBox = styled.div`
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
 const TABLE = styled.table`
   border-collapse: collapse;
   border-spacing: 0;
   text-align: left;
-
   width: 100%;
+  max-width: calc(100% - 0.5rem);
 `;
 
 const TR = styled.tr`
@@ -34,6 +43,10 @@ const TR = styled.tr`
     }
   }
   color: ${Colors.secundaryfontColor};
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 const TH = styled.th`
   padding: 0.5rem;
@@ -56,25 +69,27 @@ export default function ContactList({ status, title }: ContactListProps) {
       {filterByParameter().length === 0 ? (
         <DisplayInfoBox>Sem informações para exibir </DisplayInfoBox>
       ) : (
-        <TABLE>
-          <tr>
-            <TH>Nome</TH>
-            <TH>Email</TH>
-            <TH></TH>
-          </tr>
-          {filterByParameter().map((user, id) => {
-            return (
-              <TR key={id}>
-                <InfoCard
-                  id={user.id}
-                  username={user.username}
-                  status={user.status}
-                  email={user.email}
-                />
-              </TR>
-            );
-          })}
-        </TABLE>
+        <TableBox>
+          <TABLE>
+            <tr>
+              <TH>Nome</TH>
+              <TH>Email</TH>
+              <TH></TH>
+            </tr>
+            {filterByParameter().map((user, id) => {
+              return (
+                <TR key={id}>
+                  <InfoCard
+                    id={user.id}
+                    username={user.username}
+                    status={user.status}
+                    email={user.email}
+                  />
+                </TR>
+              );
+            })}
+          </TABLE>
+        </TableBox>
       )}
     </>
   );

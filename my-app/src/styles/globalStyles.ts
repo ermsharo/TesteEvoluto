@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { Colors } from "./defaultProps";
+import { BreakPoints, Colors } from "./defaultProps";
 import { Fonts } from "./defaultProps";
 
 const GlobalStyle = createGlobalStyle`
@@ -24,6 +24,13 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${Fonts.primaryFont};
     text-transform: capitalize;
     padding:1rem;
+
+    @media (max-width: ${BreakPoints.bgMediumDevices}) {
+      font-size:1.5rem;
+
+    padding:1rem;
+  }
+
   }
 
 `;
