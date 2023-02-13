@@ -1,15 +1,5 @@
 import styled from "styled-components";
-import { Fonts } from "./defaultProps";
-
-const Colors = {
-  primaryfontColor: "#daeffc",
-  secundaryfontColor: "#b5def9",
-  regularColor: "#0e71b3",
-  hooverColor: "#1188d8",
-  firstBackground: "#020e16",
-  secondBackround: "#041c2d",
-  thirthBackground: "#052a43",
-};
+import { Fonts, Colors, BreakPoints } from "./defaultProps";
 
 export const Box = styled.div`
   padding: 1.5rem;
@@ -96,5 +86,72 @@ export const Button = styled.button`
   margin-bottom: 2rem;
   &:hover {
     background-color: ${Colors.hooverColor};
+  }
+`;
+
+export const Board = styled.div`
+  margin: auto;
+  padding: 2rem 0rem;
+  height: 100%;
+  width: 60vw;
+  margin: auto;
+
+  @media (max-width: ${BreakPoints.bpExtraLargeDevices}) {
+    width: 70vw;
+    margin: auto;
+  }
+  @media (max-width: ${BreakPoints.bpLargeDevices}) {
+    width: 80vw;
+    margin: auto;
+  }
+
+  @media (max-width: ${BreakPoints.bgMediumDevices}) {
+    width: 85vw;
+    margin: auto;
+  }
+
+  @media (max-width: ${BreakPoints.bgSmallDevices}) {
+    width: 90vw;
+    margin: auto;
+  }
+`;
+
+export const TabsBox = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Tabs = styled.div`
+  border-radius: 1rem 1rem 0rem 0rem;
+  background-color: ${Colors.secondBackround};
+  padding: 1rem 2rem;
+  @media (max-width: ${BreakPoints.bgSmallDevices}) {
+    font-size: 1rem;
+    padding: 1rem 0.75rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+`;
+
+export const TabsArea = styled.div`
+  border-radius: 1rem 1rem 0rem 0rem;
+  display: flex;
+`;
+
+export const TabsInfoArea = styled.div`
+  padding: 2.5rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  border-radius: 0rem 1rem 1rem 1rem;
+  gap: 1rem;
+  white-space: wrap;
+
+  text-overflow: ellipsis;
+
+  height: 100%;
+  background-color: ${Colors.secondBackround};
+
+  @media (max-width: ${BreakPoints.bgMediumDevices}) {
+    border-radius: 0rem 0rem 1rem 1rem;
   }
 `;

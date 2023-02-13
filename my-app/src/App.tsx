@@ -1,45 +1,15 @@
 import CreateUserForm from "./components/CreateUserForm";
 import ContactList from "./components/ContactList";
-import styled from "styled-components";
 import GlobalStyle from "./styles/globalStyles";
 import Header from "./components/Header/Header";
-import { Colors } from "./styles/defaultProps";
 import { useState } from "react";
-const Board = styled.div`
-  width: 70vw;
-  margin: auto;
-  padding: 2rem;
-`;
-
-const TabsBox = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const Tabs = styled.div`
-  border-radius: 1rem 1rem 0rem 0rem;
-  background-color: ${Colors.secondBackround};
-  padding: 1rem 2rem;
-`;
-
-const TabsArea = styled.div`
-  border-radius: 1rem 1rem 0rem 0rem;
-  display: flex;
-`;
-
-export const TabsInfoArea = styled.div`
-  padding: 2.5rem;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
-  border-radius: 0rem 1rem 1rem 1rem;
-  gap: 1rem;
-  white-space: wrap;
-
-  text-overflow: ellipsis;
-  width: 100%;
-  height: 100%;
-  background-color: ${Colors.secondBackround};
-`;
+import {
+  Board,
+  Tabs,
+  TabsArea,
+  TabsBox,
+  TabsInfoArea,
+} from "./styles/generalStyles";
 
 type tabTypes = {
   name: string;
