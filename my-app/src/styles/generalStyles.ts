@@ -92,7 +92,7 @@ export const Button = styled.button`
 export const Board = styled.div`
   margin: auto;
   padding: 2rem 0rem;
-  height: 100%;
+  height: 80vh;
   width: 60vw;
   margin: auto;
 
@@ -119,6 +119,7 @@ export const Board = styled.div`
 export const TabsBox = styled.div`
   display: flex;
   flex-direction: column;
+  height:100%;
 `;
 
 export const Tabs = styled.div`
