@@ -2,6 +2,8 @@ import CreateUserForm from "./components/CreateUserForm";
 import ContactList from "./components/ContactList";
 import GlobalStyle from "./styles/globalStyles";
 import Header from "./components/Header/Header";
+import { RequestUsers } from "./services/requestUsers";
+
 import { useState } from "react";
 import {
   Board,
@@ -25,6 +27,7 @@ function Tab({ name, active }: tabTypes) {
 }
 
 function App() {
+  RequestUsers();
   const [tabIndex, setTabIndex] = useState(0);
   let TabsNames = [
     "Cadastrar Usuario",
