@@ -17,7 +17,7 @@ export const Box = styled.div`
 
 export const Input = styled.input`
   font-family: ${Fonts.primaryFont}
-  color: #333;
+
   font-size: 1.2rem;
   border-radius: 0.2rem;
   border: 0;
@@ -29,7 +29,8 @@ export const Input = styled.input`
   background-color: ${Colors.thirthBackground};
   color: ${Colors.primaryfontColor};
   &::placeholder {
-    color: ${Colors.firstBackground};
+    color: ${Colors.primaryfontColor};
+    font-family: ${Fonts.primaryFont}
   }
   &:focus{
     outline: 0.2rem solid  ${Colors.firstBackground};
