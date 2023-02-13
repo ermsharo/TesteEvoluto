@@ -18,7 +18,6 @@ const DisplayInfoBox = styled.div`
   font-size: 1rem;
 `;
 
-
 const TABLE = styled.table`
   border-collapse: collapse;
   border-spacing: 0;
@@ -53,7 +52,7 @@ export default function ContactList({ status, title }: ContactListProps) {
   };
 
   return (
-    <Box>
+    <>
       <h2>{title}</h2>
       {filterByParameter().length === 0 ? (
         <DisplayInfoBox>Sem informações para exibir </DisplayInfoBox>
@@ -78,6 +77,6 @@ export default function ContactList({ status, title }: ContactListProps) {
           })}
         </TABLE>
       )}
-    </Box>
+    </>
   );
 }

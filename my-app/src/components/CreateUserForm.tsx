@@ -77,7 +77,7 @@ export default function CreateUserForm() {
   };
 
   return (
-    <Box>
+    <>
       <h2>Cadastrar usuario</h2>
       <FormBox>
         <Label>
@@ -107,6 +107,6 @@ export default function CreateUserForm() {
         <Button onClick={() => subscribeUser()}>Cadastrar</Button>
         <ErrorAlert errors={formErrors} />
       </FormBox>
-    </Box>
+    </>
   );
 }
