@@ -4,8 +4,7 @@ import { FaEdit, FaTrash, FaSave } from "react-icons/fa";
 import { Colors } from "../../styles/defaultProps";
 import { useState } from "react";
 import { EditInput } from "../../styles/generalStyles";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-// import { addNewUser } from "./../redux/features/user/userSlice";
+import { useAppDispatch } from "../../redux/hooks";
 import { removeUser, editUser } from "./../../redux/features/user/userSlice";
 
 export const TH = styled.th`

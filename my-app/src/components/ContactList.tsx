@@ -18,11 +18,6 @@ const DisplayInfoBox = styled.div`
   font-size: 1rem;
 `;
 
-const IconList = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  gap: 2rem;
-`;
 
 const TABLE = styled.table`
   border-collapse: collapse;

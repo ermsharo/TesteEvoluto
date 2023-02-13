@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { User } from "../../types";
 import RegularCard from "./RegularCard";
 import DeletedCard from "./DeletedCars";

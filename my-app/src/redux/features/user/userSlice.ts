@@ -1,5 +1,4 @@
-import axios from "axios";
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { UserInitialState, User, EditIputs } from "./../../../types/index";
 
 const initialState: UserInitialState = {
@@ -16,7 +15,6 @@ const changeUserinfo = (state: UserInitialState, editInputs: EditIputs) => {
     }
     return userObj;
   });
-  console.log("Array with status changed", updatedStatus);
   return updatedStatus;
 };
 
@@ -33,7 +31,6 @@ const changeUserStatus = (
     }
     return userObj;
   });
-  console.log("Array with status changed", updatedStatus);
   return updatedStatus;
 };
 
