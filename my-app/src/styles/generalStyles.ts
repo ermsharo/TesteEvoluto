@@ -32,9 +32,7 @@ export const Input = styled.input`
   border-radius: 0.2rem;
   border: 0;
   box-sizing: border-box;
-
   width: calc(100%);
-
   margin-top: 0.5rem;
   padding: 1rem;
   margin-bottom: 1rem;
@@ -48,7 +46,6 @@ export const Input = styled.input`
     outline-style: dashed;
   }
 `;
-
 
 export const EditInput = styled.input`
   font-family: ${Fonts.primaryFont}
@@ -73,7 +70,6 @@ export const EditInput = styled.input`
     outline-style: dashed;
   }
 `;
-
 
 export const Label = styled.label`
   font-family: ${Fonts.primaryFont};

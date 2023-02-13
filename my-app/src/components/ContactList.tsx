@@ -9,6 +9,21 @@ interface ContactListProps {
   title: string;
 }
 
+const DisplayInfoBox = styled.div`
+  padding: 1rem;
+  background-color: ${Colors.thirthBackground};
+  color: ${Colors.primaryfontColor};
+  border-radius: 1rem;
+  text-align: center;
+  font-size: 1rem;
+`;
+
+const IconList = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+`;
+
 const TABLE = styled.table`
   border-collapse: collapse;
   border-spacing: 0;
@@ -21,7 +36,7 @@ const TR = styled.tr`
   padding: 1rem;
   &:nth-child(odd) {
     background-color: ${Colors.thirthBackground};
-    input{
+    input {
       background-color: ${Colors.secondBackround};
     }
   }
@@ -33,28 +48,41 @@ const TH = styled.th`
 
 export default function ContactList({ status, title }: ContactListProps) {
   const userList = useAppSelector((state) => state.user.users);
+
+  const filterByParameter = () => {
+    const filterByStatus = userList.filter((user) => {
+      return user.status === status;
+    });
+
+    return filterByStatus;
+  };
+
   return (
     <Box>
       <h2>{title}</h2>
-      <TABLE>
-        <tr>
-          <TH>User</TH>
-          <TH>Email</TH>
-          <TH></TH>
-        </tr>
-        {userList.map((user, id) => {
-          return (
-            <TR key={id}>
-              <InfoCard
-                id={user.id}
-                username={user.username}
-                status={user.status}
-                email={user.email}
-              />
-            </TR>
-          );
-        })}
-      </TABLE>
+      {filterByParameter().length === 0 ? (
+        <DisplayInfoBox>Sem informações para exibir </DisplayInfoBox>
+      ) : (
+        <TABLE>
+          <tr>
+            <TH>User</TH>
+            <TH>Email</TH>
+            <TH></TH>
+          </tr>
+          {userList.map((user, id) => {
+            return (
+              <TR key={id}>
+                <InfoCard
+                  id={user.id}
+                  username={user.username}
+                  status={user.status}
+                  email={user.email}
+                />
+              </TR>
+            );
+          })}
+        </TABLE>
+      )}
     </Box>
   );
 }
