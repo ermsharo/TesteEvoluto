@@ -3,7 +3,7 @@ import { User } from "../../types";
 import { FaEdit, FaTrash, FaSave } from "react-icons/fa";
 import { Colors } from "../../styles/defaultProps";
 import { useState } from "react";
-import { Input, Label, Box, Button } from "../../styles/generalStyles";
+import { Input, Label, Box, Button ,EditInput } from "../../styles/generalStyles";
 
 export const TH = styled.th`
   padding: 0.5rem;
@@ -45,7 +45,7 @@ export default function RegularCard({ username, email, id }: User) {
         {!editMode ? (
           formInputs.username
         ) : (
-          <Input
+          <EditInput
             type="text"
             placeholder="username"
             name="username"
@@ -59,7 +59,7 @@ export default function RegularCard({ username, email, id }: User) {
         {!editMode ? (
           formInputs.email
         ) : (
-          <Input
+          <EditInput
             type="text"
             onChange={handleChange}
             placeholder="email"

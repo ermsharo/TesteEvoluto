@@ -21,7 +21,7 @@ export const Box = styled.div`
   white-space: wrap;
 
   text-overflow: ellipsis;
-  height: 70vh;
+  height: 100%;
   background-color: ${Colors.secondBackround};
 `;
 
@@ -37,6 +37,31 @@ export const Input = styled.input`
 
   margin-top: 0.5rem;
   padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: ${Colors.thirthBackground};
+  color: ${Colors.primaryfontColor};
+  &::placeholder {
+    color: ${Colors.firstBackground};
+  }
+  &:focus{
+    outline: 0.2rem solid  ${Colors.firstBackground};
+    outline-style: dashed;
+  }
+`;
+
+
+export const EditInput = styled.input`
+  font-family: ${Fonts.primaryFont}
+  color: #333;
+  font-size: 1rem;
+  border-radius: 0.2rem;
+  border: 0;
+  box-sizing: border-box;
+
+  width: calc(100%);
+
+  margin-top: 0.5rem;
+  padding: 0.5rem;
   margin-bottom: 16px;
   background-color: ${Colors.thirthBackground};
   color: ${Colors.primaryfontColor};
@@ -48,6 +73,7 @@ export const Input = styled.input`
     outline-style: dashed;
   }
 `;
+
 
 export const Label = styled.label`
   font-family: ${Fonts.primaryFont};

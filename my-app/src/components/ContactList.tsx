@@ -13,13 +13,17 @@ const TABLE = styled.table`
   border-collapse: collapse;
   border-spacing: 0;
   text-align: left;
-  margin: 1rem;
+
+  width: 100%;
 `;
 
 const TR = styled.tr`
   padding: 1rem;
   &:nth-child(odd) {
     background-color: ${Colors.thirthBackground};
+    input{
+      background-color: ${Colors.secondBackround};
+    }
   }
   color: ${Colors.secundaryfontColor};
 `;
