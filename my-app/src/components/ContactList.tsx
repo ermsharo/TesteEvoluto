@@ -24,6 +24,7 @@ const TableBox = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+  height: calc(100% - 8rem);
 `;
 
 const TABLE = styled.table`
