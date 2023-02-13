@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { UserInitialState, User, EditIputs } from "./../../../types/index";
 
 const initialState: UserInitialState = {
-  users: [],
+  users: [ ],
 };
 
 const orderByUsername = (userList: User[]) => {
@@ -34,9 +34,13 @@ const changeUserStatus = (
   id: string,
   status: boolean
 ) => {
+
   const updatedStatus = state.users.map((user) => {
+
     let userObj = user;
     if (userObj.id === id) {
+      console.log("outside id", id)
+      console.log("username of ",user.username)
       userObj.status = status;
       return userObj;
     }
