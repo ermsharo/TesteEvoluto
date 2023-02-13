@@ -7,4 +7,4 @@ dentro da pasta **my-app** rodar
     npm start 
 
 ## Link para produção
-https://lovely-custard-006eaf.netlify.app/
+https://fabulous-biscotti-de940a.netlify.app/
