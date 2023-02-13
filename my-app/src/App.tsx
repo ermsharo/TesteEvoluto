@@ -2,6 +2,7 @@ import CreateUserForm from "./components/CreateUserForm";
 import ContactList from "./components/ContactList";
 import GlobalStyle from "./styles/globalStyles";
 import Header from "./components/Header/Header";
+
 import { useState } from "react";
 import {
   Board,
